@@ -23,10 +23,6 @@ const Navbar = () => {
         <li className="font-semibold uppercase">
           <NavLink to="/blog">Blog</NavLink>
         </li>
-        <li className="font-semibold uppercase">
-          <NavLink to="/login">login</NavLink>
-        </li>
-        
       </>
     );
     const handleSignOut = () => {

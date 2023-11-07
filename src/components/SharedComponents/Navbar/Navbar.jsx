@@ -15,7 +15,7 @@ const Navbar = () => {
           <NavLink to="/">Home</NavLink>
         </li>
         <li className="font-semibold uppercase">
-          <NavLink to="/add">ALL Food Items</NavLink>
+          <NavLink to="/allProducts">ALL Food Items</NavLink>
         </li>
         <li className="font-semibold uppercase">
           <NavLink to={`/my/${user?.email}`}>My Cart</NavLink>
@@ -65,6 +65,7 @@ const Navbar = () => {
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">{navLinks}</ul>
+          {user ? <button onClick={handleSignOut} className="btn">Sign Out</button> : <Link to='/login'><button>Login</button></Link>}
         </div>
         <div className="navbar-end">
           <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
@@ -79,7 +80,25 @@ const Navbar = () => {
             user?.email ? <p>{emailUs}</p> : user?.displayName && <p>{userName}</p> 
           }
           
-          {user ? <button onClick={handleSignOut} className="btn">Sign Out</button> : <Link to='/login'><button>Login</button></Link>}
+
+
+          <div className="flex-none">
+    <ul className="menu menu-horizontal px-1">
+      <li>
+        <details>
+          <summary>
+            Parent
+          </summary>
+          <ul className="p-2 bg-base-100">
+            <li><a>Link 1</a></li>
+            <li><a>Link 2</a></li>
+          </ul>
+        </details>
+      </li>
+    </ul>
+  </div>
+
+
           
         </div>
       </div>

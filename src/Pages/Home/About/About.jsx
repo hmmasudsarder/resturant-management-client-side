@@ -4,7 +4,7 @@ import beef from '../../../assets/image/beef.jpg';
 const About = () => {
   return (
     <div>
-      <div className="hero min-h-screen bg-base-200">
+      <div className="hero min-h-screen bg-base-200 mt-10">
         <div className="hero-content flex-col lg:flex-row">
           <div className="w-1/2 relative h-3/4">
           <img

@@ -68,38 +68,31 @@ const Navbar = () => {
           {user ? <button onClick={handleSignOut} className="btn">Sign Out</button> : <Link to='/login'><button>Login</button></Link>}
         </div>
         <div className="navbar-end">
-          <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
-            <div className="w-10 rounded-full">
+          
               
-              {
-                user?.photoURL ? <img src={displayPic} /> :  <img src={disPic}/>
-              }
-            </div>
-          </label>
-          {
+              {/* {
+                user?.photoURL ? <img src={displayPic} /> :  <img tabIndex={0} className="btn btn-ghost btn-circle" src={disPic}/>
+              } */}
+            
+          {/* {
             user?.email ? <p>{emailUs}</p> : user?.displayName && <p>{userName}</p> 
-          }
+          } */}
           
-
-
-          <div className="flex-none">
-    <ul className="menu menu-horizontal px-1">
-      <li>
-        <details>
-          <summary>
-            Parent
-          </summary>
-          <ul className="p-2 bg-base-100">
-            <li><a>Link 1</a></li>
-            <li><a>Link 2</a></li>
-          </ul>
-        </details>
-      </li>
-    </ul>
-  </div>
-
-
+          <div className="dropdown">
+            {
+              user?.photoURL ? <img tabIndex={0} className="btn btn-ghost btn-circle" src={displayPic} /> :
+            <img src={disPic} tabIndex={0} className="btn btn-ghost btn-circle"/>
+            }
           
+        
+        <ul tabIndex={0} className="menu menu-sm dropdown-content z-[1] mr-[-200px] shadow bg-base-100 rounded-box">
+        <li><a className="px-20"></a></li>
+          <li className=""><Link>My added food</Link></li>
+          <li><Link>Add a foods</Link></li>
+          <li><Link>My ordered food </Link></li>
+        </ul>
+      </div>
+
         </div>
       </div>
     </div>

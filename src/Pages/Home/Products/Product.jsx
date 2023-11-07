@@ -9,7 +9,8 @@ const Product = ({ product }) => {
         <a href="#">
           <img className="p-8 rounded-t-lg" src={img} alt="product image" />
         </a>
-        <div className="px-5 pb-5">
+        <div className="px-5 pb-5 ">
+          <div className="flex justify-between items-center">
           <a href="#">
             <h5 className="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">
               {name}
@@ -20,6 +21,7 @@ const Product = ({ product }) => {
               {food_category}
             </h5>
           </a>
+          </div>
           <div className="flex items-center mt-2.5 mb-5">
             <svg
               className="w-4 h-4 text-yellow-300 mr-1"

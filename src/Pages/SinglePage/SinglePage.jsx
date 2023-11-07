@@ -1,5 +1,6 @@
 import { Link, useLoaderData } from "react-router-dom";
 import Navbar from "../../components/SharedComponents/Navbar/Navbar";
+// import { AiOutlineArroRight } from 'react-icons/AiOutlineArroRight';
 
 const SinglePage = () => {
   const products = useLoaderData();
@@ -7,11 +8,11 @@ const SinglePage = () => {
   return (
     <div>
       <Navbar />
-      <div className="card w-96 bg-base-100 shadow-xl">
+      <div className="card w-96 bg-base-100 shadow-xl mx-auto">
         <figure className="px-10 pt-10">
           <img src={img} alt="Shoes" className="rounded-xl" />
         </figure>
-        <div className="card-body mx-auto">
+        <div className="card-body">
           <h2 className="card-title">Name: {name}</h2>
           <h2 className="card-title">Category: {food_category}</h2>
           <p className="text-xl">Made By: </p>
@@ -21,6 +22,7 @@ const SinglePage = () => {
             <Link to={`/checkOut/${_id}`}>
               <button className="btn btn-warning">Order Now</button>
             </Link>
+            
           </div>
         </div>
       </div>

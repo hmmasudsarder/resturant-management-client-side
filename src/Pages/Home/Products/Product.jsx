@@ -1,5 +1,7 @@
+import { Link } from "react-router-dom";
+
 const Product = ({ product }) => {
-  const { name, img, price, food_category, orders } = product;
+  const { _id, name, img, price, food_category, orders } = product;
 
   return (
     <div className="">
@@ -77,12 +79,12 @@ const Product = ({ product }) => {
             <span className="text-3xl font-bold text-gray-900 dark:text-white">
               ${price}
             </span>
-            <a
-              href="#"
+            <Link
+              to={`/singleCard/${_id}`}
               className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
             >
               DETAILS
-            </a>
+            </Link>
           </div>
         </div>
       </div>

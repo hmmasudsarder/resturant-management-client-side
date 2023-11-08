@@ -4,7 +4,10 @@ import Navbar from "../../components/SharedComponents/Navbar/Navbar";
 
 const SinglePage = () => {
   const products = useLoaderData();
-  const { _id, name, img, price, food_category } = products;
+  console.log(products)
+   
+  const { _id, name, img, price, food_category, country, email } = products;
+  console.log(email)
   return (
     <div>
       <Navbar />
@@ -15,8 +18,8 @@ const SinglePage = () => {
         <div className="card-body">
           <h2 className="card-title">Name: {name}</h2>
           <h2 className="card-title">Category: {food_category}</h2>
-          <p className="text-xl">Made By: </p>
-          <p className="text-xl">Food Origin: </p>
+          <p className="text-xl">Made By: {email}</p>
+          <p className="text-xl">Food Origin: {country}</p>
           <p className="text-xl text-orange-400">Price: ${price}</p>
           <div className="card-actions flex items-center justify-between">
             <Link to={`/purchase/${_id}`}>

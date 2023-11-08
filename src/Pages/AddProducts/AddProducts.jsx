@@ -23,7 +23,7 @@ const AddProducts = () => {
             headers: {
                 'content-type': 'application/json'
             },
-            body: JSON.stringify(newProduct, user)
+            body: JSON.stringify({...newProduct, email: user.email})
         })
         .then(res => res.json())
         .then(data => {

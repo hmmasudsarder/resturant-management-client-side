@@ -2,7 +2,7 @@ import img from '../../../assets/banner/images.png';
 const Footer = () => {
   return (
     <div>
-      <footer className="footer footer-center p-10 bg-orange-400">
+      <footer className="footer footer-center p-10 bg-orange-400 mt-14">
   <aside>
     <img src={img} alt="" className='rounded-md' />
     <p className="font-bold">

@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 
 const AllProductsCard = ({product}) => {
-    const { _id, name, img, price, food_category, orders } = product;
+    const { _id, name, img, price, food_category, quantity } = product;
     return (
         <div>
             <div className="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
@@ -12,12 +12,12 @@ const AllProductsCard = ({product}) => {
           <div className="flex justify-between items-center">
           <a href="#">
             <h5 className="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">
-              {name}
+              N.: {name}
             </h5>
           </a>
           <a href="#">
             <h5 className="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">
-              {food_category}
+             ca.: {food_category}
             </h5>
           </a>
           </div>
@@ -72,7 +72,7 @@ const AllProductsCard = ({product}) => {
                 5.0
               </div>
               <div className="text-center bg-blue-100 text-blue-800 text-xs font-semibold px-1 py-2 rounded ">
-                ORDERS: {orders}
+                quan: {quantity}
               </div>
             </div>
           </div>

@@ -68,15 +68,9 @@ const Navbar = () => {
           {user ? <button onClick={handleSignOut} className="btn">Sign Out</button> : <Link to='/login'><button>Login</button></Link>}
         </div>
         <div className="navbar-end">
-          
               
-              {/* {
-                user?.photoURL ? <img src={displayPic} /> :  <img tabIndex={0} className="btn btn-ghost btn-circle" src={disPic}/>
-              } */}
             
-          {/* {
-            user?.email ? <p>{emailUs}</p> : user?.displayName && <p>{userName}</p> 
-          } */}
+          
           
           <div className="dropdown">
             {
@@ -85,8 +79,13 @@ const Navbar = () => {
             }
           
         
-        <ul tabIndex={0} className="menu menu-sm dropdown-content z-[1] mr-[-200px] shadow bg-base-100 rounded-box">
-        <li><a className="px-20"></a></li>
+        <ul tabIndex={0} className="menu menu-sm dropdown-content z-[1] ml-[-120px] shadow bg-base-100 rounded-box">
+        <li><a className="px-20">{userName}</a></li>
+          <li className="">
+          {
+            user?.email ? <p>{emailUs}</p> : user?.displayName && <p>{userName}</p> 
+          }
+          </li>
           <li className=""><Link>My added food</Link></li>
           <li><Link to='/addProduct'>Add a Food Item</Link></li>
           <li><Link>My ordered food </Link></li>

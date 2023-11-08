@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import img1 from '../../../assets/banner/img1.jpg';
 import img2 from '../../../assets/banner/img2.jpg';
 import img3 from '../../../assets/banner/img3.jpg';
@@ -18,11 +19,10 @@ const Banner = () => {
           </div>
           <div className="absolute flex items-center h-full left-0 top-0 bg-gradient-to-r from-[#151515] to-[rgba(21, 21, 21, 0)]">
             <div className="text-white space-y-7 pl-14 w-1/3">
-            <p className="text-6xl font-bold">Affordable Price For Car Servicing</p>
+            <p className="text-6xl font-bold">Affordable Price For Food</p>
             <p className="font-semibold">There are many variations of passages of  available, but the majority have suffered alteration in some form</p>
             <div className="flex">
-            <button className="btn btn-outline btn-warning mr-3">Discover More</button>
-            <button className="btn btn-outline btn-warning">Latest Project</button>
+            <Link to='/allProducts' className="btn btn-outline btn-warning">all menus page</Link>
             </div>
             </div>
           </div>
@@ -39,11 +39,10 @@ const Banner = () => {
           </div>
           <div className="absolute flex items-center h-full left-0 top-0 bg-gradient-to-r from-[#151515] to-[rgba(21, 21, 21, 0)]">
             <div className="text-white space-y-7 pl-14 w-1/3">
-            <p className="text-6xl font-bold">Affordable Price For Car Servicing</p>
+            <p className="text-6xl font-bold">Affordable Price For Food</p>
             <p className="font-semibold">There are many variations of passages of  available, but the majority have suffered alteration in some form</p>
             <div className="flex">
-            <button className="btn btn-outline btn-warning mr-3">Discover More</button>
-            <button className="btn btn-outline btn-warning">Latest Project</button>
+            <Link to='/allProducts' className="btn btn-outline btn-warning">all menus page</Link>
             </div>
             </div>
           </div>
@@ -60,11 +59,10 @@ const Banner = () => {
           </div>
           <div className="absolute flex items-center h-full left-0 top-0 bg-gradient-to-r from-[#151515] to-[rgba(21, 21, 21, 0)]">
             <div className="text-white space-y-7 pl-14 w-1/3">
-            <p className="text-6xl font-bold">Affordable Price For Car Servicing</p>
+            <p className="text-6xl font-bold">Affordable Price For Food</p>
             <p className="font-semibold">There are many variations of passages of  available, but the majority have suffered alteration in some form</p>
             <div className="flex">
-            <button className="btn btn-outline btn-warning mr-3">Discover More</button>
-            <button className="btn btn-outline btn-warning">Latest Project</button>
+            <Link to='/allProducts' className="btn btn-outline btn-warning">all menus page</Link>
             </div>
             </div>
           </div>
@@ -81,11 +79,10 @@ const Banner = () => {
           </div>
           <div className="absolute flex items-center h-full left-0 top-0 bg-gradient-to-r from-[#151515] to-[rgba(21, 21, 21, 0)]">
             <div className="text-white space-y-7 pl-14 w-1/3">
-            <p className="text-6xl font-bold">Affordable Price For Car Servicing</p>
+            <p className="text-6xl font-bold">Affordable Price For Food</p>
             <p className="font-semibold">There are many variations of passages of  available, but the majority have suffered alteration in some form</p>
             <div className="flex">
-            <button className="btn btn-outline btn-warning mr-3">Discover More</button>
-            <button className="btn btn-outline btn-warning">Latest Project</button>
+            <Link to='/allProducts' className="btn btn-outline btn-warning">all menus page</Link>
             </div>
             </div>
           </div>

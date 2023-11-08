@@ -1,10 +1,10 @@
 import { useLoaderData } from "react-router-dom";
 import Navbar from "../../components/SharedComponents/Navbar/Navbar";
 import AllProductsCard from "./AllProductsCard";
+import Footer from "../../components/SharedComponents/Footer/Footer";
 
 const AllProducts = () => {
     const products = useLoaderData();
-    console.log(products)
   return (
     <div>
       <Navbar />
@@ -56,6 +56,7 @@ const AllProducts = () => {
                 products.map(product => <AllProductsCard key={product._id} product={product}></AllProductsCard>)
             }
       </div>
+      <Footer/>
     </div>
   );
 };

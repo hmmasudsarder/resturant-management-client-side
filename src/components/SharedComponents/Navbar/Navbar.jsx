@@ -88,7 +88,7 @@ const Navbar = () => {
         <ul tabIndex={0} className="menu menu-sm dropdown-content z-[1] mr-[-200px] shadow bg-base-100 rounded-box">
         <li><a className="px-20"></a></li>
           <li className=""><Link>My added food</Link></li>
-          <li><Link>Add a foods</Link></li>
+          <li><Link to='/addProduct'>Add a Food Item</Link></li>
           <li><Link>My ordered food </Link></li>
         </ul>
       </div>

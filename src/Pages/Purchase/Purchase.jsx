@@ -18,7 +18,7 @@ const Purchase = () => {
             headers:{
                 'content-type': 'application/json'
             },
-            body: JSON.stringify({...product, information, data})
+            body: JSON.stringify({...product, information, dataO})
         })
         .then(res => res.json)
         .then(data => {

@@ -7,6 +7,7 @@ import AllProducts from '../Pages/AllProducts/AllProducts';
 import SinglePage from '../Pages/SinglePage/SinglePage';
 import Purchase from '../Pages/Purchase/Purchase';
 import SignUp from '../components/SharedComponents/SignUp/SignUp';
+import AddProducts from '../Pages/AddProducts/AddProducts';
 
 const Router = createBrowserRouter([
     {
@@ -22,6 +23,10 @@ const Router = createBrowserRouter([
                 path:'/allProducts',
                 element:<AllProducts></AllProducts>,
                 loader: () => fetch('http://localhost:5000/allProducts')
+            },
+            {
+                path: '/addProduct',
+                element: <AddProducts></AddProducts>,
             },
             {
                 path:'/singleCard/:id',

@@ -1,29 +1,42 @@
-import { useContext } from "react";
-import { useState } from "react";
-import { Link, useLocation, useNavigate } from "react-router-dom";
-import { AuthContext } from "../../../AuthProvider/AuthProvider";
-import Navbar from "../Navbar/Navbar";
+import {useState, useContext} from 'react';
+import Navbar from '../Navbar/Navbar';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { AuthContext } from '../../../AuthProvider/AuthProvider';
 import img from '../../../assets/banner/login.jpg'
-import Swal from "sweetalert2";
+import Swal from 'sweetalert2';
 
-const Login = () => {
+const SignUp = () => {
     const location = useLocation();
     const navigate = useNavigate();
     const [pError, setError] = useState("");
-    const { userLogin, googleLogin } = useContext(AuthContext);
-    const handleLogin = (e) => {
+    const { googleLogin, createUser } = useContext(AuthContext);
+
+    let swal = new Swal()
+    const handleSignUp = (e) => {
         e.preventDefault();
-        const email = e.target.email.value;
-        const password = e.target.password.value;
-        userLogin(email, password)
-          .then((res) => {
-            Swal("success", "Your Login SuccessFully", "success");
+        const form = new FormData(e.currentTarget);
+        const email = form.get('email');
+        const name = form.get('name');
+        const photo = form.get('photo');
+        const password = form.get('password');
+        setError("");
+        if (!/[A-Z]/.test(password)) {
+          setError("Your Password Should have at least one Uppercase characters");
+          return;
+        } else if (!/[#$?@&!*^-]/.test(password)) {
+          setError("Your Password Should have at least one special characters");
+          return;
+        }
+        console.log(email, password, name, photo)
+        createUser(email, password)
+        .then((res) => {
+            swal("success", "Your Login SuccessFully", "success");
             navigate(location?.state ? location.state : "/");
             console.log(res?.user)
           })
           .catch((error) => setError(error.message));
-      };
-      const handleWithGool = () => {
+    } 
+    const handleWithGool = () => {
         googleLogin()
           .then((res) => {
             navigate(location?.state ? location.state : "/");
@@ -43,8 +56,20 @@ const Login = () => {
               <img className="w-full h-screen" src={img} alt="" />
             </div>
             <div className="card ml-10 w-full max-w-sm shadow-2xl bg-base-100">
-              <form onSubmit={handleLogin} className="card-body">
-                <h1 className="text-3xl font-bold text-center">Login</h1>
+              <form onSubmit={handleSignUp} className="card-body">
+                <h1 className="text-3xl font-bold text-center">Sign UP</h1>
+                <div className="form-control">
+                  <label className="label">
+                    <span className="label-text">Name</span>
+                  </label>
+                  <input
+                    type="text"
+                    name="name"
+                    placeholder="Enter Your Sweet Name"
+                    className="input input-bordered"
+                    required
+                  />
+                </div>
                 <div className="form-control">
                   <label className="label">
                     <span className="label-text">Email</span>
@@ -53,6 +78,18 @@ const Login = () => {
                     type="email"
                     name="email"
                     placeholder="email"
+                    className="input input-bordered"
+                    required
+                  />
+                </div>
+                <div className="form-control">
+                  <label className="label">
+                    <span className="label-text">Photo URL</span>
+                  </label>
+                  <input
+                    type="text"
+                    name="photo"
+                    placeholder="Send Your Nice Picture"
                     className="input input-bordered"
                     required
                   />
@@ -77,12 +114,12 @@ const Login = () => {
                 <div className="form-control mt-6">
                   <input
                     type="submit"
-                    value="Login"
+                    value="Sign UP"
                     className="btn btn-outline btn-success"
                   />
                 </div>
               </form>
-              <p className="text-center my-5">New to Restaurant Management? <Link className="text-orange-500" to='/signup'>Sign Up</Link> </p>
+              <p className="text-center my-5">Already have an Account ? <Link className="text-orange-500" to='/login'>Login</Link> </p>
               <button
                 onClick={handleWithGool}
                 className="btn btn-outline btn-success mb-6"
@@ -97,4 +134,4 @@ const Login = () => {
     );
 };
 
-export default Login;
+export default SignUp;

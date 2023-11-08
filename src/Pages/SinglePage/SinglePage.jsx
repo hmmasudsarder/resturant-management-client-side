@@ -19,7 +19,7 @@ const SinglePage = () => {
           <p className="text-xl">Food Origin: </p>
           <p className="text-xl text-orange-400">Price: ${price}</p>
           <div className="card-actions flex items-center justify-between">
-            <Link to={`/checkOut/${_id}`}>
+            <Link to={`/purchase/${_id}`}>
               <button className="btn btn-warning">Order Now</button>
             </Link>
             

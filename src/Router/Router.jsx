@@ -5,6 +5,8 @@ import Login from '../components/SharedComponents/Login/Login';
 import Error from '../components/SharedComponents/Error/Error';
 import AllProducts from '../Pages/AllProducts/AllProducts';
 import SinglePage from '../Pages/SinglePage/SinglePage';
+import Purchase from '../Pages/Purchase/Purchase';
+import SignUp from '../components/SharedComponents/SignUp/SignUp';
 
 const Router = createBrowserRouter([
     {
@@ -27,8 +29,17 @@ const Router = createBrowserRouter([
                 loader: ({params}) => fetch(`http://localhost:5000/products/${params.id}`)
             },
             {
+                path: '/purchase/:id',
+                element:<Purchase></Purchase>,
+                loader: ({params}) => fetch(`http://localhost:5000/purchase/${params.id}`)
+            },
+            {
                 path: '/login',
                 element: <Login></Login>,
+            },
+            {
+                path:'/signup',
+                element: <SignUp></SignUp>
             }
         ]
     }

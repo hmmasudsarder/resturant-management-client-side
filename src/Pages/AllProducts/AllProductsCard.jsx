@@ -6,7 +6,7 @@ const AllProductsCard = ({product}) => {
         <div>
             <div className="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
         <a href="#">
-          <img className="p-8 rounded-t-lg" src={img} alt="product image" />
+          <img className="p-8 rounded-t-lg w-[320px]" src={img} alt="product image" />
         </a>
         <div className="px-5 pb-5">
           <div className="flex justify-between items-center">

@@ -2,6 +2,7 @@ import { useContext, useState } from "react";
 import {  useLoaderData } from "react-router-dom";
 import Navbar from "../../components/SharedComponents/Navbar/Navbar";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
+import Swal from "sweetalert2";
 
 const Purchase = () => {
     const {user} = useContext(AuthContext);
@@ -14,7 +15,7 @@ const Purchase = () => {
     const information = {email: user.email, name: user.displayName}
     const handleAddToCard = () => {
     console.log(data)
-        fetch('http://localhost:5000/purchaseProduct',{
+        fetch('https://restaurant-management-server-liard.vercel.app/purchaseProduct',{
             method: 'POST',
             headers:{
                 'content-type': 'application/json'
@@ -24,6 +25,13 @@ const Purchase = () => {
         .then(res => res.json())
         .then(data => {
             console.log(data)
+            if(data.acknowledged){
+            Swal.fire({
+                title: "Your Item Added SuccessFully",
+                text: "That thing is still around?",
+                icon: "success"
+              })
+              }
         })
     }
   return (

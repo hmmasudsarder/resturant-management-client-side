@@ -18,9 +18,6 @@ const Navbar = () => {
           <NavLink to="/allProducts">ALL Food Items</NavLink>
         </li>
         <li className="font-semibold uppercase">
-          <NavLink to={`/my/${user?.email}`}>My Cart</NavLink>
-        </li>
-        <li className="font-semibold uppercase">
           <NavLink to="/blog">Blog</NavLink>
         </li>
       </>
@@ -80,15 +77,15 @@ const Navbar = () => {
           
         
         <ul tabIndex={0} className="menu menu-sm dropdown-content z-[1] ml-[-120px] shadow bg-base-100 rounded-box">
-        <li><a className="px-20">{userName}</a></li>
+        <li><a className="px-20"></a></li>
           <li className="">
           {
             user?.email ? <p>{emailUs}</p> : user?.displayName && <p>{userName}</p> 
           }
           </li>
-          <li className=""><Link>My added food</Link></li>
+          <li className=""><Link to={`/myFoods/${user?.email}`}>My added food</Link></li>
           <li><Link to='/addProduct'>Add a Food Item</Link></li>
-          <li><Link>My ordered food </Link></li>
+          <li><Link to={`/myOrderedFood/${user?.email}`}>My ordered food </Link></li>
         </ul>
       </div>
 

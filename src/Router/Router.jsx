@@ -8,6 +8,11 @@ import SinglePage from '../Pages/SinglePage/SinglePage';
 import Purchase from '../Pages/Purchase/Purchase';
 import SignUp from '../components/SharedComponents/SignUp/SignUp';
 import AddProducts from '../Pages/AddProducts/AddProducts';
+import PrivateRoute from '../AuthProvider/PrivateRoute';
+import Blog from '../Pages/Blaog/Blog';
+import MyFoods from '../Pages/MyFoods/MyFoods';
+import MyOrderedFood from '../Pages/MyOrderedFood/MyOrderedFood';
+import UpdateForm from '../Pages/UpdateForm/UpdateForm';
 
 const Router = createBrowserRouter([
     {
@@ -22,21 +27,42 @@ const Router = createBrowserRouter([
             {
                 path:'/allProducts',
                 element:<AllProducts></AllProducts>,
-                loader: () => fetch('http://localhost:5000/allProducts')
+                loader: () => fetch('https://restaurant-management-server-liard.vercel.app/allProducts')
             },
             {
                 path: '/addProduct',
                 element: <AddProducts></AddProducts>,
             },
             {
+                path:'/blog',
+                element:<Blog/>
+            },
+            {
                 path:'/singleCard/:id',
-                element: <SinglePage></SinglePage>,
-                loader: ({params}) => fetch(`http://localhost:5000/products/${params.id}`)
+                element: <PrivateRoute>
+                    <SinglePage/>
+                </PrivateRoute> ,
+                loader: ({params}) => fetch(`https://restaurant-management-server-liard.vercel.app/products/${params.id}`)
+            },
+            {
+                path:'/update/:id',
+                element:<UpdateForm></UpdateForm>,
+                loader: ({params}) => fetch(`https://restaurant-management-server-liard.vercel.app/update/${params.id}`)
             },
             {
                 path: '/purchase/:id',
                 element:<Purchase></Purchase>,
-                loader: ({params}) => fetch(`http://localhost:5000/purchase/${params.id}`)
+                loader: ({params}) => fetch(`https://restaurant-management-server-liard.vercel.app/purchase/${params.id}`)
+            },
+            {
+                path: '/myFoods/:email',
+                element: <PrivateRoute><MyFoods></MyFoods></PrivateRoute>,
+                loader: ({params}) => fetch(`https://restaurant-management-server-liard.vercel.app/myFood/${params?.email}`)
+            },
+            {
+                path: '/myOrderedFood/:email',
+                element: <PrivateRoute><MyOrderedFood></MyOrderedFood></PrivateRoute>,
+                loader: ({params}) => fetch(`https://restaurant-management-server-liard.vercel.app/buy/${params.email}`)
             },
             {
                 path: '/login',

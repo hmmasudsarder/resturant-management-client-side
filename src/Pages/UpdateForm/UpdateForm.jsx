@@ -1,11 +1,16 @@
-import { AuthContext } from "../../AuthProvider/AuthProvider";
-import { useContext} from 'react';
+import { useLoaderData } from "react-router-dom";
 import Navbar from "../../components/SharedComponents/Navbar/Navbar";
+import Footer from "../../components/SharedComponents/Footer/Footer";
+import { AuthContext } from "../../AuthProvider/AuthProvider";
+import { useContext } from "react";
 import Swal from "sweetalert2";
 
-const AddProducts = () => {
+
+const UpdateForm = () => {
     const {user} = useContext(AuthContext);
-    const handleAddNewFood = e => {
+    const product = useLoaderData();
+    const {_id, name, img, food_category, quantity, price, country, description, orders} = product;
+    const handleUpdateFood = e => {
         e.preventDefault();
         const form = e.target;
         const name = form.name.value;
@@ -18,8 +23,8 @@ const AddProducts = () => {
         const description = form.description.value;
         const orders = form.orders.value;
         const newProduct = {name, img, food_category, quantity, price, country, description, orders};
-        fetch('https://restaurant-management-server-liard.vercel.app/newItem',{
-            method: 'POST',
+        fetch(`https://restaurant-management-server-liard.vercel.app/update/${_id}`,{
+            method: 'PUT',
             headers: {
                 'content-type': 'application/json'
             },
@@ -30,7 +35,7 @@ const AddProducts = () => {
             console.log(data)
             if(data.acknowledged){
             Swal.fire({
-                title: "Your Item Added SuccessFully",
+                title: "Your Item Update SuccessFully",
                 text: "That thing is still around?",
                 icon: "success"
               })
@@ -39,12 +44,15 @@ const AddProducts = () => {
         })
         
     }
+    
+    // console.log(product)
+    
     return (
         <div className="">
             <Navbar/>
             <div className="bg-[#F4F3F0] p-24">
-            <h2 className="text-3xl font-extrabold text-center mb-6">Add a Food Item</h2>
-            <form onSubmit={handleAddNewFood}>
+            <h2 className="text-3xl font-extrabold text-center mb-6">Update a Food Item</h2>
+            <form onSubmit={handleUpdateFood}>
                 
                 <div className="md:flex mb-8">
                     <div className="form-control md:w-1/2">
@@ -52,7 +60,7 @@ const AddProducts = () => {
                             <span className="label-text">Food Name</span>
                         </label>
                         <label className="input-group">
-                            <input type="text" name="name" placeholder="Food Name" className="input input-bordered w-full" />
+                            <input type="text" name="name" defaultValue={name} placeholder="Food Name" className="input input-bordered w-full" />
                         </label>
                     </div>
                     <div className="form-control md:w-1/2 ml-4">
@@ -60,7 +68,7 @@ const AddProducts = () => {
                             <span className="label-text">Food Image Url</span>
                         </label>
                         <label className="input-group">
-                            <input type="text" name="photo" placeholder="Food Image Url" className="input input-bordered w-full" />
+                            <input type="text" name="photo" defaultValue={img} placeholder="Food Image Url" className="input input-bordered w-full" />
                         </label>
                     </div>
                 </div>
@@ -71,7 +79,7 @@ const AddProducts = () => {
                             <span className="label-text">Food Category</span>
                         </label>
                         <label className="input-group">
-                            <input type="text" name="category" placeholder="Food Category" className="input input-bordered w-full" />
+                            <input type="text" defaultValue={food_category} name="category" placeholder="Food Category" className="input input-bordered w-full" />
                         </label>
                     </div>
                     <div className="form-control md:w-1/2 ml-4">
@@ -79,7 +87,7 @@ const AddProducts = () => {
                         <span className="label-text">Food  Quantity</span>
                         </label>
                         <label className="input-group">
-                            <input type="text" name="quantity" placeholder="Food Quantity" className="input input-bordered w-full" />
+                            <input type="text" name="quantity" defaultValue={quantity} placeholder="Food Quantity" className="input input-bordered w-full" />
                         </label>
                     </div>
                 </div>
@@ -90,7 +98,7 @@ const AddProducts = () => {
                             <span className="label-text">Food Price</span>
                         </label>
                         <label className="input-group">
-                            <input type="text" name="price" placeholder="Food Price" className="input input-bordered w-full" />
+                            <input type="text" name="price" defaultValue={price} placeholder="Food Price" className="input input-bordered w-full" />
                         </label>
                     </div>
                     <div className="form-control md:w-1/2 ml-4">
@@ -109,7 +117,7 @@ const AddProducts = () => {
                             <span className="label-text">Food Made By Country</span>
                         </label>
                         <label className="input-group">
-                            <input type="text" name="country" placeholder="Food Made By Country" className="input input-bordered w-full" />
+                            <input type="text" name="country" defaultValue={country} placeholder="Food Made By Country" className="input input-bordered w-full" />
                         </label>
                     </div>
                     <div className="form-control md:w-1/2 ml-4">
@@ -117,7 +125,7 @@ const AddProducts = () => {
                             <span className="label-text">Food Description</span>
                         </label>
                         <label className="input-group">
-                            <input type="text" name="description" placeholder="Details" className="input input-bordered w-full" />
+                            <input type="text" name="description" defaultValue={description} placeholder="Details" className="input input-bordered w-full" />
                         </label>
                     </div>
                 </div>
@@ -127,7 +135,7 @@ const AddProducts = () => {
                             <span className="label-text">Ordered</span>
                         </label>
                         <label className="input-group">
-                            <input type="text" name="orders" placeholder="How Many Sell Make The Food" className="input input-bordered w-full" />
+                            <input type="text" name="orders" defaultValue={orders} placeholder="How Many Sell Make The Food" className="input input-bordered w-full" />
                         </label>
                     </div>
                 </div>
@@ -135,8 +143,9 @@ const AddProducts = () => {
 
             </form>
         </div>
+        <Footer/>
         </div>
     );
 };
 
-export default AddProducts;
+export default UpdateForm;

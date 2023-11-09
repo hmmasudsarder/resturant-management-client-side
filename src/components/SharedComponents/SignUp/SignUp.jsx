@@ -9,9 +9,9 @@ const SignUp = () => {
     const location = useLocation();
     const navigate = useNavigate();
     const [pError, setError] = useState("");
-    const { googleLogin, createUser } = useContext(AuthContext);
+    const { googleLogin, createUser, userProfile } = useContext(AuthContext);
 
-    let swal = new Swal()
+   
     const handleSignUp = (e) => {
         e.preventDefault();
         const form = new FormData(e.currentTarget);
@@ -30,9 +30,12 @@ const SignUp = () => {
         console.log(email, password, name, photo)
         createUser(email, password)
         .then((res) => {
-            swal("success", "Your Login SuccessFully", "success");
+            Swal("success", "Your Login SuccessFully", "success");
             navigate(location?.state ? location.state : "/");
             console.log(res?.user)
+            userProfile(res?.user, name, photo)
+            .then( () => console.log('profile update'))
+            .catch()
           })
           .catch((error) => setError(error.message));
     } 

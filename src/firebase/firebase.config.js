@@ -5,12 +5,12 @@ import { initializeApp } from "firebase/app";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyCuqpYjDm7UUhHdvDBu0QfR4sFo5dG7owU",
-  authDomain: "restaurant-management-59c25.firebaseapp.com",
-  projectId: "restaurant-management-59c25",
-  storageBucket: "restaurant-management-59c25.appspot.com",
-  messagingSenderId: "618441906920",
-  appId: "1:618441906920:web:cefc64fe67a73d5e57075d"
+  apiKey: "AIzaSyDOjPo-5rgzJmN6rJDifDOQhfyl8_qWwSY",
+  authDomain: "management-the-restaurant.firebaseapp.com",
+  projectId: "management-the-restaurant",
+  storageBucket: "management-the-restaurant.appspot.com",
+  messagingSenderId: "868497634824",
+  appId: "1:868497634824:web:74e0a51c6d8842511243bd"
 };
 
 // Initialize Firebase

@@ -7,9 +7,7 @@ const MyFoods = () => {
   const products = useLoaderData();
   
   // console.log(products);
-  if(products?.length === 0 ){
-    return <h1>Loading</h1>
-  }
+ 
   return (
     <div>
       <Navbar></Navbar>
